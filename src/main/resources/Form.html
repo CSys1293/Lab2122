@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body style="font-family: verdana;" background="http://cdn.nanxiongnandi.com/bing/PoppyFlowers_EN-CA112729815.jpg">
+
+<h1 style="color:orange;">Enroll NOW!</h1>
+
+<form name="form1" action="../enroll" onsubmit="return validateForm()" method="post">
+First Name:<input type="text" name="firstName" style="border-radius: 25px"/>
+<br>Last Name:<input type="text" name="lastName" style="border-radius: 25px"/>
+<br>Age:<input type="text" name="age" style="border-radius: 25px"/>
+<br>Address:<input type="text" name="address" style="border-radius: 25px"/>
+<br>Email:<input type="text" name="email" style="border-radius: 25px"/>
+
+
+<input type="submit" value="click">
+
+<h2 style="color:darkRed;">Pick Your Class!</h2>
+<br>
+<input type="checkbox" name="classes" value="Science">Choose Science<br>
+<input type="checkbox" name="classes" value="Humanities">Choose Humanities<br>
+<input type="checkbox" name="classes" value="Fashion and Fabrics">Choose Fashion and Fabrics<br>
+<input type="checkbox" name="classes" value="Math">Choose Math<br>
+<input type="checkbox" name="classes" value="Choir">Choose Choir<br>
+</form>
+<script>
+
+function validateForm() {
+    var fn = document.forms["form1"]["firstName"].value;
+    var ln = document.forms["form1"]["lastName"].value;
+    var ag = document.forms["form1"]["age"].value;
+    var ad = document.forms["form1"]["address"].value;
+    var em = document.forms["form1"]["email"].value;
+    if (fn == "") {
+        alert("First name must be filled out");
+        return false;
+    }else if(ln=="") {
+    	alert("Last name must be filled out");
+    	return false;
+    }else if(ag == "") {
+    	alert("Age must be filled out");
+    	return false;
+    }else if(ad == "") {
+    	alert("Address must be filled out");
+    	return false;
+    }else if(em=="") {
+    	alert("Email must be filled out");
+    	return false;
+    }
+    else if(validateEmail(em)== false) {
+    	alert("Must be a valid email");
+    	return false;
+    }
+    }
+function validateEmail(x) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+   return re.test(x);
+
+    
+}
+
+</script>
+</body>
+</html>

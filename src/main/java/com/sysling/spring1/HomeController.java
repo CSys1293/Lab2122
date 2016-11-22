@@ -18,29 +18,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/enroll", method = RequestMethod.POST)
-	public String enroll(Model model,
-			HttpServletRequest request) {
+	public String enroll(Model model, HttpServletRequest request) {
 		
 		String[] classes = request.getParameterValues("classes");
-		
+
 		System.out.println(request.getQueryString());
-		//user info
-		model.addAttribute("fn",request.getParameter("firstName"));
-		model.addAttribute("ln",request.getParameter("lastName"));
-		model.addAttribute("ag",request.getParameter("age"));
-		model.addAttribute("ad",request.getParameter("address"));
-		model.addAttribute("em",request.getParameter("email"));
-		//class selection
+		// user info
+		model.addAttribute("fn", request.getParameter("firstName"));
+		model.addAttribute("ln", request.getParameter("lastName"));
+		model.addAttribute("ag", request.getParameter("age"));
+		model.addAttribute("ad", request.getParameter("address"));
+		model.addAttribute("em", request.getParameter("email"));
+		// class selection
 		model.addAttribute("cl", classes);
-		
+
 		return "home";
 	}
+
 	
-}
+	}
+
+
